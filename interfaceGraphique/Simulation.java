@@ -18,37 +18,43 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+/**
+ * Classe créant la fenetre que nous avons appelé "simulation", c'est la fenetre centrale qui permet de créer nos alarmes avant qu'elles ne soient envoyées vers les moniteurs.
+ * <p>
+ * Elle hérite de la classe JFrame ainsi que de l'interface ActionListener
+ */
+
 public class Simulation extends JFrame implements ActionListener{
 	
-	  private JPanel container = new JPanel();
-	  private Box left = Box.createVerticalBox();
+	  protected JPanel container = new JPanel();
+	  protected Box left = Box.createVerticalBox();
 	  
 	  
-	  private JLabel labelMoni = new JLabel("Moniteur :") ;
-	  private JComboBox comboMoni = new JComboBox();
+	  protected JLabel labelMoni = new JLabel("Moniteur :") ;
+	  protected JComboBox comboMoni = new JComboBox();
 	  
     
-	  private JLabel labelBat = new JLabel("Batiment :");
-	  private JComboBox comboBat = new JComboBox();
+	  protected JLabel labelBat = new JLabel("Batiment :");
+	  protected JComboBox comboBat = new JComboBox();
 	  
 
 	  
-	  private JLabel labelType = new JLabel("Type d'alarme :") ;
-	  private JComboBox comboType = new JComboBox();
+	  protected JLabel labelType = new JLabel("Type d'alarme :") ;
+	  protected JComboBox comboType = new JComboBox();
 	  
 	  
-	  private JLabel labelNiveau = new JLabel("Niveau d'importance :") ;
-	  private JComboBox comboNiveau = new JComboBox();
+	  protected JLabel labelNiveau = new JLabel("Niveau d'importance :") ;
+	  protected JComboBox comboNiveau = new JComboBox();
 	  
 	 
-	  private JPanel spe = new JPanel();
-	  private JLabel labelSpe = new JLabel(" ");
-	  private JTextField speField = new JTextField("",10);
+	  protected JPanel spe = new JPanel();
+	  protected JLabel labelSpe = new JLabel(" ");
+	  protected JTextField speField = new JTextField("",10);
 	  
-	  private JButton bouton = new JButton("Simuler");
+	  protected JButton bouton = new JButton("Simuler");
 	  
-	  private Monitoring monitors;
-	  private Monitoring sauvegarde;
+	  protected Monitoring monitors;
+	  protected Monitoring sauvegarde;
 	  
 	  JPanel moniteur = new JPanel();
 	  JPanel batiment = new JPanel();
@@ -115,6 +121,15 @@ public class Simulation extends JFrame implements ActionListener{
 		    this.setVisible(true);        
 		    
 		  }
+	  
+	  /**
+		 * Indique les actions a effectuer pour chaque action que peut réaliser l'utilisateur avec les menus.
+		 * <p>
+		 *On spécifie également dans quel moniteur envoyer l'alarme en fonction du type de cette dernière.
+		 *Moniteur A: Incendie et Gaz
+		 *Moniteur B: Radiations et Gaz
+		 * @param e l'action "appuyer sur le bouton"
+		 */
 
 	  @Override
 		public void actionPerformed(ActionEvent e) {

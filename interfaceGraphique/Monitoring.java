@@ -21,6 +21,11 @@ import javax.swing.JTextArea;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;	
 
+/**
+ * Classe mere des deux moniteurs, héritant des de JFrame(GUI) et des interfaces (listener)
+ * Création des différents boutons et fenetres ainsi que les listes dans lesquelles les informations vont être stockées
+ */
+
 
 public class Monitoring extends JFrame implements ListSelectionListener, ActionListener {
 	
@@ -44,6 +49,13 @@ public class Monitoring extends JFrame implements ListSelectionListener, ActionL
 	ArrayList<Moniteur> listeMoni = new ArrayList<Moniteur>();
 	
 	ArrayList<String> Archives = new ArrayList<String>();
+	
+	
+	
+	/**
+	 * Paramétrage des fenêtres principales
+	 * @param title titre de la fenetre que l'on va générer
+	 */
 	
 	public Monitoring(String title) {
 		
@@ -70,7 +82,7 @@ public class Monitoring extends JFrame implements ListSelectionListener, ActionL
 	    this.setTitle(title);
 	    this.setSize(450, 300);
 	    this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	    this.setLocationRelativeTo(null);
+	    this.setLocation(600,400);
 	    this.setContentPane(container);
 	    
 	    setVisible(true);
@@ -79,6 +91,12 @@ public class Monitoring extends JFrame implements ListSelectionListener, ActionL
 	
 		
 	}
+	
+	/**
+	 * Paramétrage de la partie informations ( quand on clique sur "détails" )
+	 * 
+	 * @param info sur l'alarme selectionnée
+	 */
 
 	public void addAlarmeInfo(String info) {
 		
@@ -112,7 +130,14 @@ public class Monitoring extends JFrame implements ListSelectionListener, ActionL
 	public void valueChanged(ListSelectionEvent e) {
 		
 	}
-
+	
+	/**
+	 * Lorsque l'utilisateur va appuyer sur le bouton "suprimer", la méthode va retirer tous les événements correspondant à l'alarme des différentes listes.
+	 * <p>
+	 *Si l'utilisateur n'a pas encore visualisé les détails, le programme refusera de supprimer le message.
+	 *Lorsque l'utilisateur va appuyer sur le bouton "détails", une fenetre va s'ouvrir et afficher toutes les informations sur l'alarme séléctionnée.
+	 * @param e l'action "appuyer sur le bouton"
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		

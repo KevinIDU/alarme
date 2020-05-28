@@ -2,6 +2,10 @@
 
 import interfaceGraphique.*;
 
+/**
+ * On créer nos 3 fenetres et on les dispose sur l'écran à l'aide de coordonnées.
+ */
+
 public class main {
 
 	public static void main(String[] args){
@@ -9,11 +13,14 @@ public class main {
 
 		
 		  Simulation fen = new Simulation();
-		  Monitoring A = new MoniteurA("ecologie");
-		  Monitoring B = new MoniteurB("pompier");
+		  Monitoring a = new MoniteurA("ecologie");
+		  Monitoring b = new MoniteurB("pompier");
 		  
-		  fen.addA(A);
-		  fen.addB(B);
+		  a.setLocation(20,280);
+		  b.setLocation(900,280);
+		  
+		  fen.addA(a);
+		  fen.addB(b);
 		  
 	}
 
